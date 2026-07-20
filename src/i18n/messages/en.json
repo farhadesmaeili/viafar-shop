@@ -1,0 +1,34 @@
+{
+  "common": {
+    "welcome": "Welcome to Viafar",
+    "search": "Search products..."
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+
+    "collections": "Collections",
+    "allProducts": "All Products",
+    "featured": "Featured",
+    "newArrivals": "New Arrivals",
+
+    "glassTypes": "Glass Types",
+    "glassPanels": "Glass Panels",
+    "glassSheets": "Glass Sheets",
+
+    "categories": "Categories",
+    "offers": "Offers",
+    "about": "About Us"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "fa": "Persian",
+    "en": "English",
+    "tr": "Turkish",
+    "ar": "Arabic"
+  }
+}

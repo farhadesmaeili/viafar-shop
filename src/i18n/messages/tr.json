@@ -1,0 +1,34 @@
+{
+  "common": {
+    "welcome": "Viafar'a hoş geldiniz",
+    "search": "Ürünlerde ara..."
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "products": "Ürünler",
+
+    "collections": "Koleksiyonlar",
+    "allProducts": "Tüm Ürünler",
+    "featured": "Öne Çıkanlar",
+    "newArrivals": "Yeni Gelenler",
+
+    "glassTypes": "Cam Türleri",
+    "glassPanels": "Cam Paneller",
+    "glassSheets": "Cam Levhalar",
+
+    "categories": "Kategoriler",
+    "offers": "Teklifler",
+    "about": "Hakkımızda"
+  },
+  "theme": {
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem"
+  },
+  "language": {
+    "fa": "Farsça",
+    "en": "İngilizce",
+    "tr": "Türkçe",
+    "ar": "Arapça"
+  }
+}

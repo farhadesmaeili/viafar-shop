@@ -1,0 +1,34 @@
+{
+  "common": {
+    "welcome": "مرحباً بكم في Viafar",
+    "search": "البحث عن المنتجات..."
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+
+    "collections": "المجموعات",
+    "allProducts": "جميع المنتجات",
+    "featured": "مميز",
+    "newArrivals": "وصل حديثاً",
+
+    "glassTypes": "أنواع الزجاج",
+    "glassPanels": "ألواح زجاجية",
+    "glassSheets": "صفائح زجاجية",
+
+    "categories": "التصنيفات",
+    "offers": "العروض",
+    "about": "من نحن"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "language": {
+    "fa": "الفارسية",
+    "en": "الإنجليزية",
+    "tr": "التركية",
+    "ar": "العربية"
+  }
+}

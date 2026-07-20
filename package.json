@@ -1,0 +1,96 @@
+{
+  "name": "viafar-shop",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": ">=24.16.0",
+    "pnpm": ">=11.6.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "type-check": "tsc --noEmit",
+    "check": "pnpm lint && pnpm type-check && pnpm format:check",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "cz-git": {
+    "alias": {
+      "feat": "feat: add new feature",
+      "fix": "fix: fix bug",
+      "docs": "docs: update documentation",
+      "style": "style: code style",
+      "refactor": "refactor: refactor code",
+      "perf": "perf: improve performance",
+      "test": "test: add tests",
+      "build": "build: build system",
+      "ci": "ci: continuous integration",
+      "chore": "chore: maintenance",
+      "revert": "revert: revert commit"
+    },
+    "messages": {
+      "type": "Select the type of change:",
+      "scope": "Select the scope:",
+      "subject": "Write a short description:",
+      "body": "Provide a longer description (optional):",
+      "breaking": "Are there BREAKING CHANGES?",
+      "footerPrefixes": "Select issue prefixes:",
+      "customFooter": "Custom footer:",
+      "confirmCommit": "Confirm commit?"
+    }
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.6.0",
+    "@fontsource/vazirmatn": "^5.2.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.25.0",
+    "next": "16.2.10",
+    "next-intl": "^4.13.2",
+    "next-themes": "^0.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "shadcn": "^4.13.1",
+    "tailwind-merge": "^3.6.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "commitizen": "^4.3.2",
+    "cz-git": "^1.13.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.5",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

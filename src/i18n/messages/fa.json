@@ -1,0 +1,34 @@
+{
+  "common": {
+    "welcome": "به ویافر خوش آمدید",
+    "search": "جستجوی محصولات..."
+  },
+  "navigation": {
+    "home": "خانه",
+    "products": "محصولات",
+
+    "collections": "مجموعه‌ها",
+    "allProducts": "همه محصولات",
+    "featured": "ویژه",
+    "newArrivals": "جدیدترین‌ها",
+
+    "glassTypes": "انواع شیشه",
+    "glassPanels": "پنل‌های شیشه‌ای",
+    "glassSheets": "ورق‌های شیشه‌ای",
+
+    "categories": "دسته‌بندی‌ها",
+    "offers": "پیشنهادها",
+    "about": "درباره ما"
+  },
+  "theme": {
+    "light": "روشن",
+    "dark": "تاریک",
+    "system": "سیستم"
+  },
+  "language": {
+    "fa": "فارسی",
+    "en": "انگلیسی",
+    "tr": "ترکی",
+    "ar": "عربی"
+  }
+}
