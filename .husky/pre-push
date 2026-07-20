@@ -1,2 +1,5 @@
-pnpm check
-pnpm build
+#!/usr/bin/env sh
+set -e
+
+corepack pnpm check
+corepack pnpm build
