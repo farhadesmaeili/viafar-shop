@@ -20,7 +20,7 @@ export class CreateProductUseCase {
   constructor(private readonly repository: ProductRepository) {}
 
   public async execute(input: CreateProductInput): Promise<CreateProductOutput> {
-    const id = ProductId.create(input.id);
+    const id = ProductId.generate();
 
     const sku = ProductSku.create(input.sku);
 

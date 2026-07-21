@@ -2,6 +2,7 @@ import { AggregateRoot } from '@/core/domain/entities';
 import { Money } from '@/core/domain/value-objects';
 
 import {
+  ImageId,
   ProductDescription,
   ProductId,
   ProductImage,
@@ -26,9 +27,13 @@ export class Product extends AggregateRoot<ProductId> {
   public static create(data: CreateProductProps): Product {
     return new Product(data.id, {
       sku: data.sku,
+
       name: data.name,
+
       slug: data.slug,
+
       description: data.description,
+
       price: data.price,
 
       status: ProductStatus.create('draft'),
@@ -151,10 +156,10 @@ export class Product extends AggregateRoot<ProductId> {
     };
   }
 
-  public removeImage(imageId: string): void {
+  public removeImage(imageId: ImageId): void {
     this.props = {
       ...this.props,
-      images: this.props.images.filter((image) => image.id().value() !== imageId),
+      images: this.props.images.filter((image) => !image.id().equals(imageId)),
       updatedAt: new Date(),
     };
   }
