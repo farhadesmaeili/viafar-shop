@@ -14,6 +14,8 @@ import {
 
 import { ProductSkuAlreadyExistsError, ProductSlugAlreadyExistsError } from '../errors';
 
+import { ProductMapper } from '../mappers';
+
 import type { CreateProductInput, CreateProductOutput } from '../dto';
 
 export class CreateProductUseCase {
@@ -54,10 +56,6 @@ export class CreateProductUseCase {
 
     await this.repository.save(product);
 
-    return {
-      id: product.getId().value(),
-      sku: product.sku().value(),
-      slug: product.slug().value(),
-    };
+    return ProductMapper.toCreateOutput(product);
   }
 }

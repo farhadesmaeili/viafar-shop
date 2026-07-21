@@ -1,6 +1,8 @@
 import type { CurrencyCode } from '@/shared/constants/currencies';
 
-export interface CreateProductInput {
+export interface GetProductByIdOutput {
+  readonly id: string;
+
   readonly sku: string;
 
   readonly name: string;
@@ -11,7 +13,8 @@ export interface CreateProductInput {
 
   readonly price: {
     readonly amount: number;
-
     readonly currency: CurrencyCode;
   };
+
+  readonly status: string;
 }
