@@ -1,0 +1,21 @@
+services:
+  postgres-test:
+    image: postgres:17-alpine
+
+    container_name: viafar-postgres-test
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: viafar_test
+      POSTGRES_PASSWORD: viafar_test
+      POSTGRES_DB: viafar_test
+
+    ports:
+      - '5433:5432'
+
+    volumes:
+      - viafar_postgres_test_data:/var/lib/postgresql/data
+
+volumes:
+  viafar_postgres_test_data:

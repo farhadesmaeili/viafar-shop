@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Currency {
+  IRR
+  USD
+  EUR
+  TRY
+  AED
+  SAR
+}
+
+enum ProductStatus {
+  draft
+  active
+  archived
+}
+
+enum ProductModelFormat {
+  glb
+  gltf
+  fbx
+}
+
+model Product {
+  id String @id
+
+  sku String @unique
+
+  name String
+
+  slug String @unique
+
+  description String
+
+  priceAmount Int
+
+  priceCurrency Currency
+
+  status ProductStatus
+
+  isPublished Boolean @default(false)
+
+  images ProductImage[]
+
+  model3D ProductModel3D?
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([isPublished])
+  @@index([createdAt])
+  @@map("products")
+}
+
+model ProductImage {
+  id String @id
+
+  productId String
+
+  url String
+
+  alt String
+
+  width Int
+
+  height Int
+
+  sortOrder Int
+
+  isPrimary Boolean
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([sortOrder])
+  @@map("product_images")
+}
+
+model ProductModel3D {
+  id String @id
+
+  productId String @unique
+
+  url String
+
+  previewImage String
+
+  format ProductModelFormat
+
+  fileSize Int
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@map("product_models_3d")
+}
