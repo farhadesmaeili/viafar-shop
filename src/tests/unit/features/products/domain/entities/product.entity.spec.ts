@@ -9,6 +9,7 @@ import {
   ProductDescription,
   ProductId,
   ProductImage,
+  ProductModel3D,
   ProductName,
   ProductSku,
   ProductSlug,
@@ -40,6 +41,8 @@ describe('Product Entity', () => {
     expect(product.status().value()).toBe('draft');
 
     expect(product.images()).toHaveLength(0);
+
+    expect(product.model3D()).toBeUndefined();
   });
 
   it('should rename product', () => {
@@ -71,11 +74,47 @@ describe('Product Entity', () => {
     expect(product.status().isActive()).toBe(true);
   });
 
+  it('should attach 3d model', () => {
+    const product = createProduct();
+
+    const model = ProductModel3D.create({
+      url: 'https://example.com/model.glb',
+      previewImage: 'https://example.com/preview.jpg',
+      format: 'glb',
+      fileSize: 500000,
+    });
+
+    product.attachModel3D(model);
+
+    expect(product.model3D()).toBeDefined();
+
+    expect(product.model3D()!.url()).toBe('https://example.com/model.glb');
+  });
+
+  it('should detach 3d model', () => {
+    const product = createProduct();
+
+    const model = ProductModel3D.create({
+      url: 'https://example.com/model.glb',
+      previewImage: 'https://example.com/preview.jpg',
+      format: 'glb',
+      fileSize: 500000,
+    });
+
+    product.attachModel3D(model);
+
+    expect(product.model3D()).toBeDefined();
+
+    product.detachModel3D();
+
+    expect(product.model3D()).toBeUndefined();
+  });
+
   it('should add image', () => {
     const product = createProduct();
 
     const image = ProductImage.create({
-      id: ImageId.create('image-001'),
+      id: ImageId.generate(),
       url: 'https://example.com/image.jpg',
       alt: 'Product image',
       width: 1200,
@@ -92,7 +131,7 @@ describe('Product Entity', () => {
   it('should remove image', () => {
     const product = createProduct();
 
-    const imageId = ImageId.create('image-001');
+    const imageId = ImageId.generate();
 
     const image = ProductImage.create({
       id: imageId,

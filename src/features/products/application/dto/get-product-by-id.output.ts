@@ -1,4 +1,5 @@
 import type { CurrencyCode } from '@/shared/constants/currencies';
+import type { ProductStatusType } from '../../domain/value-objects';
 
 export interface GetProductByIdOutput {
   readonly id: string;
@@ -16,5 +17,31 @@ export interface GetProductByIdOutput {
     readonly currency: CurrencyCode;
   };
 
-  readonly status: string;
+  readonly status: ProductStatusType;
+
+  readonly images: ReadonlyArray<{
+    readonly id: string;
+
+    readonly url: string;
+
+    readonly alt: string;
+
+    readonly width: number;
+
+    readonly height: number;
+
+    readonly sortOrder: number;
+
+    readonly isPrimary: boolean;
+  }>;
+
+  readonly model3D?: {
+    readonly url: string;
+
+    readonly previewImage: string;
+
+    readonly format: string;
+
+    readonly fileSize: number;
+  };
 }

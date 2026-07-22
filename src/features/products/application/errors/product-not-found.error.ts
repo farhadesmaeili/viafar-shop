@@ -1,6 +1,5 @@
-import { DomainError } from '@/core/domain/errors';
-
-export class ProductNotFoundError extends DomainError {
+import { ApplicationError } from '@/core/application/errors';
+export class ProductNotFoundError extends ApplicationError {
   constructor() {
     super('Product not found.');
   }

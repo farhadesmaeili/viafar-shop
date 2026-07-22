@@ -28,6 +28,34 @@ export class ProductMapper {
       price: product.price().toJSON(),
 
       status: product.status().value(),
+
+      images: product.images().map((image) => ({
+        id: image.id().value(),
+
+        url: image.url(),
+
+        alt: image.alt(),
+
+        width: image.width(),
+
+        height: image.height(),
+
+        sortOrder: image.sortOrder(),
+
+        isPrimary: image.isPrimary(),
+      })),
+
+      model3D: product.model3D()
+        ? {
+            url: product.model3D()!.url(),
+
+            previewImage: product.model3D()!.previewImage(),
+
+            format: product.model3D()!.format(),
+
+            fileSize: product.model3D()!.fileSize(),
+          }
+        : undefined,
     };
   }
 }

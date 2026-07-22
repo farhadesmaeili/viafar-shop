@@ -46,3 +46,9 @@ export interface CreateProductProps {
 
   readonly price: Money;
 }
+
+export interface ReconstituteProductProps {
+  readonly id: ProductId;
+
+  readonly props: ProductProps;
+}

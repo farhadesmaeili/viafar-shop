@@ -9,6 +9,10 @@ export class InMemoryProductRepository implements ProductRepository {
     return this.products.get(id.value()) ?? null;
   }
 
+  public async findByIdValue(id: string): Promise<Product | null> {
+    return this.products.get(id) ?? null;
+  }
+
   public async findBySlug(slug: ProductSlug): Promise<Product | null> {
     for (const product of this.products.values()) {
       if (product.slug().equals(slug)) {

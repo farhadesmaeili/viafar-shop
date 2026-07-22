@@ -13,7 +13,7 @@ import {
   ProductStatus,
 } from '../value-objects';
 
-import type { CreateProductProps, ProductProps } from './product.props';
+import type { CreateProductProps, ProductProps, ReconstituteProductProps } from './product.props';
 
 export class Product extends AggregateRoot<ProductId> {
   private props: ProductProps;
@@ -46,6 +46,14 @@ export class Product extends AggregateRoot<ProductId> {
 
       updatedAt: new Date(),
     });
+  }
+
+  /**
+   * Rebuild aggregate from persistence layer.
+   * This method must only be used by repositories.
+   */
+  public static reconstitute(data: ReconstituteProductProps): Product {
+    return new Product(data.id, data.props);
   }
 
   // ---------- Getters ----------

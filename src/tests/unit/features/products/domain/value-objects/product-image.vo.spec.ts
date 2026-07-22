@@ -3,26 +3,32 @@ import { describe, expect, it } from 'vitest';
 import { ImageId, ProductImage } from '@/features/products/domain/value-objects';
 
 describe('ProductImage', () => {
-  const createProps = () => ({
-    id: ImageId.create('image-001'),
+  const createProps = () => {
+    const imageId = ImageId.generate();
 
-    url: ' https://example.com/image.jpg ',
+    return {
+      id: imageId,
 
-    alt: ' Product Image ',
+      url: ' https://example.com/image.jpg ',
 
-    width: 1200,
+      alt: ' Product Image ',
 
-    height: 800,
+      width: 1200,
 
-    sortOrder: 0,
+      height: 800,
 
-    isPrimary: true,
-  });
+      sortOrder: 0,
+
+      isPrimary: true,
+    };
+  };
 
   it('should create a valid product image', () => {
-    const image = ProductImage.create(createProps());
+    const props = createProps();
 
-    expect(image.id().value()).toBe('image-001');
+    const image = ProductImage.create(props);
+
+    expect(image.id().value()).toBe(props.id.value());
 
     expect(image.url()).toBe('https://example.com/image.jpg');
 
